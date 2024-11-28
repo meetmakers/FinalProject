@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('./partials/head') %>
+  <link rel="stylesheet" href="/cs/signup.css">
+  <link rel="stylesheet" href="/cs/warning.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+</head>
+<body>
+  <%- include('./partials/navbar') %>
+  <% if (locals.error) { %>
+    <div class="main">
+    <div class="alert <%= locals.error ? 'show':'hide' %>">
+      <span class="fas fa-exclamation-circle"></span>
+      <span class="msg"><%=error %></span>
+      <button class="close-btn" onclick="closeAlert()">
+        <span class="fas fa-times"></span>
+      </button>
+    </div>
+  </div>
+  <%}%>
+
+  <section class="signup-container forms">
+    <div class="form register">
+
+      <div class="form-content">
+        <header class="heading">Blog Registration</header>
+
+        <form action="/user/signup" method="post">
+            <div class="fields">
+              <div class="field input-field">
+                <div class="head">Enter Your Name</div>
+                <input type="text" placeholder="Enter Your Name" class="input" name="name" id="name">
+                <b><label id="FirstNameForm" class="forms"></label></b>
+              </div>
+
+              <div class="field input-field">
+                <div class="head">Enter Your Email</div>
+                <input type="text" placeholder="Enter Your Email" class="input" name="email" id="email">
+                <b><label id="emailForms" class="forms"></label></b>
+              </div>
+              
+              <div class="field input-field">
+                <div class="head">Enter Your Date of Birth</div>
+                <input type="date" class="date-field" name="dob" id="dob" required>
+                <b><label id="dateForm" class="forms"></label></b>
+              </div>
+              
+              <div class="field input-field">
+                <div class="head">Enter Your Password</div>
+                <input type="password" placeholder="Enter Your Password" class="input" name="password" id="password">
+                <b><label for="" id="passwordForm"></label></b>
+              </div>
+              
+              <div class="field input-field">
+                <div class="head">Confirm Your Password</div>
+                <input type="password" placeholder="Confirm Your Password" class="input" name="cpassword" id="cpassword">
+                <b><label for="" id="cpasswordform"></label></b>
+              </div>
+              
+              <div class="field input-field">
+                <button type="submit" class="registerForm input" id="register-btn" disabled>Register</button>
+              </div>
+            </div>
+        </form>
+      </div>
+
+    </div>
+  </section>
+  <script src="/script/card.js"></script>
+  <script src="/script/form.js"></script>
+</body>
+</html>

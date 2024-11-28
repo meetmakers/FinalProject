@@ -1,0 +1,20 @@
+<link rel="stylesheet" href="/cs/navbar.css">
+<div class="navbar">
+  <div class="logo">
+      <img src="/Images/meetthemakerslogo.png" width="250px">
+  </div>
+  <nav>
+     <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="">Discover Makers</a></li>
+      <li><a href="">Sell Your Creations</a></li>
+      <% if(locals.user){ %>
+        <li><a href=""><%=user.name %></a></li>
+        <li><a href="/user/signout"> Log Out</a></li>
+      <%}else{ %>
+        <li><a href="/user/signup">Sign Up</a></li> 
+        <li><a href="/user/signin">Log In</a></li>  
+      <%} %>
+        </ul>
+  </nav>
+</div>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('./partials/head') %>
+  <link rel="stylesheet" href="/cs/signin.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="/cs/warning.css">
+  <!-- <link rel="stylesheet" href="/warning.css"> -->
+</head>
+<body>
+  <%- include('./partials/navbar') %>
+
+  <% if (locals.error) { %>
+    <div class="main">
+    <div class="alert <%= locals.error ? 'show':'hide' %>">
+      <span class="fas fa-exclamation-circle"></span>
+      <span class="msg"><%=error %></span>
+      <button class="close-btn" onclick="closeAlert()">
+        <span class="fas fa-times"></span>
+      </button>
+    </div>
+  </div>
+  <%}%>
+
+
+  <section class="signin-container forms">
+    <div class="form login">
+      <div class="form-content">
+        <header>Login</header>
+
+        <form action="/user/signin" method="post">
+          <div class="field input-field">
+            <input type="email" placeholder="Email" class="input" name="email">
+          </div>
+
+          <div class="field input-field">
+            <input type="password" placeholder="Password" class="password" name="password">
+            <!-- <i class='bx bxs-hide eye-icon'></i> -->
+          </div>
+
+          <div class="form-link">
+            <a href="" class="forget-pass">Forget Password</a>
+          </div>
+          
+          <div class="field button-field">
+            <button type="submit">Login</button>
+          </div>
+
+
+
+        </form>
+
+        
+        <div class="form-link">
+          <span>Already have an Account?<a href="" class="singup-link">Sign-up</a></span>
+        </div>
+      </div>
+      <div class="line"></div>
+
+      <!-- <div class="media-options">
+        <a href="" class="field facebook">
+          <i class='bx bxl-facebook-circle facebook-icon'></i>
+          <span>Login with Facebook</span>
+        </a>
+      </div>
+      <div class="media-options">
+        <a href="" class="field google">
+          <img src="/Images/images.png" alt="" class="google-img">
+          Login With Google
+        </a>
+      </div> -->
+
+    </div>  
+  </section>
+  <script src="/script/card.js"></script>
+
+</body>
+</html>
